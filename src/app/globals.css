@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #05070b;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a3448;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #455065;
+}
+
+/* React Flow attribution panel is hidden via proOptions; this is a fallback. */
+.react-flow__panel.react-flow__attribution {
+  display: none;
+}
+
+/*
+ * Theming for the CDT graph canvas.
+ *
+ * Deliberately implemented as plain CSS targeting React Flow's own
+ * documented class names, instead of Tailwind arbitrary child-selector
+ * utilities (e.g. `[&>button]:!bg-...`) layered on top of the library's
+ * bundled stylesheet. That combination is fragile: specificity/import-order
+ * between the library's CSS and Tailwind's generated utilities isn't
+ * guaranteed, and it was the root cause of controls/minimap rendering with
+ * no visible styling. Plain CSS here always wins predictably.
+ */
+.cdt-flow {
+  background-color: transparent;
+}
+
+.react-flow__attribution {
+  display: none;
+}
+
+.react-flow__controls {
+  box-shadow: none;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.react-flow__controls-button {
+  background: #121826;
+  border-bottom: 1px solid #1b2333;
+  color: #94a3b8;
+  width: 26px;
+  height: 26px;
+}
+
+.react-flow__controls-button:hover {
+  background: #1b2333;
+}
+
+.react-flow__controls-button svg {
+  fill: #94a3b8;
+}
+
+.react-flow__minimap {
+  background-color: #121826;
+  border: 1px solid #1b2333;
+  border-radius: 8px;
+}
+
+.react-flow__edge-path {
+  stroke-width: 1.25px;
+}
+
+.react-flow__handle {
+  opacity: 0.6;
+}
